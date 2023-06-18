@@ -1,3 +1,4 @@
+using Beer_API.Services;
 using Beers.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -46,5 +47,11 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// Run the background service
+//var beerEmailService = app.Services.GetService<BeerRandomEmailService>();
+//var cancellationToken = app.Services.GetService<IHostApplicationLifetime>().ApplicationStopping;
+//Task.Run(() => beerEmailService.ExecuteAsync(cancellationToken));
+
 
 app.Run();
